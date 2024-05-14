@@ -28,7 +28,7 @@ GLESSI-TCHE est une solution d'assistant vocal intelligent conçue pour répondr
 ### Mise en œuvre :
 
 * **Collecte et préparation de données :** Rassembler un ensemble de données volumineux et de haute qualité en langues béninoises, comprenant des informations agricoles, des terminologies locales et des exemples de conversations naturelles.
-* **Développement du modèle linguistique :** Entraîner un modèle de langage neuronal avancé capable de comprendre et de générer du texte dans les langues béninoises, en tenant compte des nuances dialectales et des contextes agricoles.
+* **Développement du modèle linguistique :** Rechercher et ou Entraîner un modèle de langage neuronal avancé capable de comprendre et de générer du texte dans les langues béninoises, en tenant compte des nuances dialectales et des contextes agricoles.
 * **Conception de l'interface utilisateur :** Développer une interface utilisateur intuitive et conviviale adaptée aux interactions vocales et à l'utilisation dans des environnements ruraux.
 * **Déploiement et tests :** Déployer GLESSI-TCHE dans des communautés pilotes et recueillir des commentaires des agriculteurs pour affiner ses fonctionnalités et son efficacité.
 * **Sensibilisation et adoption :** Mener des campagnes de sensibilisation pour informer les agriculteurs d'GLESSI-TCHE et les encourager à l'adopter.

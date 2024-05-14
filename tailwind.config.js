@@ -9,7 +9,14 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'green-glessi': '#006400',
+        'yellow-glessi': '#F8E110',
+        'red-glessi': '#E60606',
+        'orange-glessi' : '#FF8B04'
+      },
+    },
   },
   plugins: [],
 }

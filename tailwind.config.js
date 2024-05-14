@@ -14,7 +14,8 @@ export default {
         'green-glessi': '#006400',
         'yellow-glessi': '#F8E110',
         'red-glessi': '#E60606',
-        'orange-glessi' : '#FF8B04'
+        'orange-glessi' : '#FF8B04',
+        'famer-color' : '#573625'
       },
     },
   },

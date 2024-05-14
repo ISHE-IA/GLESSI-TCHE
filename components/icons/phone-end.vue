@@ -1,6 +1,6 @@
 <template>
-    <div :style="{ width: width ? width + 'em' : '1em', height: height ? height + 'em' : '1em' }">
-        <svg height="11px" version="1.1" viewBox="0 0 24 11" width="24px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <div>
+        <svg :width="width ? width + 'em' : '1em'" :height="height ? height + 'em' : '1em'" version="1.1" viewBox="0 0 24 11" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
             <title/>
             <desc/>
             <defs/>

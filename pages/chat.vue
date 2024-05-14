@@ -2,17 +2,28 @@
     <div class="h-screen flex flex-col justify-between items-center py-5 bg-gradient-to-t from-black">
         <h1 class="text-xl sm:text-2xl md:text-3xl text-white font-semibold text-center uppercase">KWABO</h1>
         <div><img class="rounded-full w-40 h-40 border-2 border-famer-color" :src="'robot.jpg'" alt=""></div>
-        <div class="relative w-14">
-            <div @click="startOrStopRecording" class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="w-14 h-14 flex justify-center items-center rounded-full bg-orange-glessi">
-                    <IconsStop v-if="isRecording" :height="'1.5'" :color="'#fff'"/>
-                    <IconsMicrophone v-else :height="'1.5'" :color="'#fff'"/>
+        <div class="flex">
+            <div class="mx-4">
+                <div class="relative w-28">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-28 h-28 flex justify-center items-center rounded-full bg-white"><IconsCamera :height="'3'" :width="'3'" :color="'#FF8B04'"/></div>
+                    </div>
+                </div>
+                <!--<input type="file" class="w-28 h-28 flex justify-center items-center"/>-->
+            </div>
+            <div class="mx-4">
+                <div class="relative w-28">
+                    <div @click="startOrStopRecording" class="absolute inset-0 flex items-center justify-center z-10">
+                        <div class="w-28 h-28 flex justify-center items-center rounded-full bg-orange-glessi">
+                            <IconsStop v-if="isRecording" :height="'3'" :width="'3'" :color="'#fff'"/>
+                            <IconsMicrophone v-else :height="'3'" :width="'3'" :color="'#fff'"/>
+                        </div>
+                    </div>
+                    <div v-if="isRecording" class="recording-indicator w-28 h-28"></div>
                 </div>
             </div>
-            <div v-if="isRecording" class="recording-indicator w-14 h-14"></div>
         </div>
-        
-        <div class="w-32 h-10 pt-5 rounded flex justify-center items-center bg-red-600"><NuxtLink to="/"><IconsPhoneEnd :height="'1.5'" :color="'#fff'"/></NuxtLink> </div>
+        <div class="w-32 h-10 rounded flex justify-center items-center bg-red-600"><NuxtLink to="/"><IconsPhoneEnd :height="'3'" :width="'3'"  :color="'#fff'"/></NuxtLink> </div>
     </div>
 </template>
 <script setup lang="ts">

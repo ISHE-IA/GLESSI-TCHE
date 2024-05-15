@@ -2,7 +2,7 @@
     <div class="w-screen h-screen bg-cover bg-fixed bg-no-repeat bg-center">
         <div class="h-screen py-16 flex flex-col justify-around items-center bg-black bg-opacity-65">
             <div class="max-w-md flex flex-col justify-center items-center">
-                <img src="~/assets/images/bot.webp" alt="" class="rounded-full w-24 h-24 mb-5">
+                <img src="~/assets/images/robot.jpeg" alt="" class="rounded-full w-24 h-24 mb-5">
                 <h1 class="text-4xl text-white uppercase font-bold">Glessi-tche</h1>
             </div>
             <div class="max-w-md w-full flex justify-center">

@@ -2,10 +2,11 @@
     <div  class="w-screen h-screen bg-cover bg-fixed bg-no-repeat bg-center">
         <div class="h-screen py-16 flex flex-col justify-around items-center bg-black bg-opacity-65">
             <div class="max-w-md flex flex-col justify-center items-center">
-                <img src="~/assets/images/bot.webp" alt="" class="rounded-full w-24 h-24 mb-5">
+                <img src="~/assets/images/robot.jpeg" alt="" class="rounded-full w-24 h-24 mb-5">
                 <h1 class="text-4xl text-white uppercase font-bold">Glessi-tche</h1>
             </div>
-            <div id="timer" class="max-w-md text-white">
+            <audio v-if="responseIsGetted" ref="audioPlayback" controls></audio>
+            <div v-else id="timer" class="max-w-md text-white">
                 <span class="text-4xl mx-4">{{ hours < 10 ? '0' + hours : hours }}</span>
                 <span class="text-4xl mx-4">:</span>
                 <span class="text-4xl mx-4">{{ minutes < 10 ? '0' + minutes : minutes }}</span>
@@ -27,34 +28,36 @@
     </div>
 </template>
 <script setup lang="ts">
-const hours = ref<number>(0)
-const minutes = ref<number>(0)
-const seconds = ref<number>(0)
-const time = ref<number>(0)
+const responseIsGetted = ref(false)
 
-let timer: ReturnType<typeof setInterval> | null = null
+const hours = ref<number>(0);
+const minutes = ref<number>(0);
+const seconds = ref<number>(0);
+const time = ref<number>(0);
+
+let timer: ReturnType<typeof setInterval> | null = null;
 
 function setTime() {
-    hours.value = Math.floor(time.value / 3600)
-    minutes.value = Math.floor((time.value % 3600) / 60)
-    seconds.value = Math.floor(time.value % 60)
+    hours.value = Math.floor(time.value / 3600);
+    minutes.value = Math.floor((time.value % 3600) / 60);
+    seconds.value = Math.floor(time.value % 60);
 }
 
 function startTimer() {
     if (timer !== null) {
-        clearInterval(timer)
+        clearInterval(timer);
     }
-    time.value = 0
+    time.value = 0;
     timer = setInterval(() => {
-        time.value++
-        setTime()
-    }, 1000)
+        time.value++;
+        setTime();
+    }, 1000);
 }
 
 function stopTimer() {
     if (timer !== null) {
-        clearInterval(timer)
-        timer = null
+        clearInterval(timer);
+        timer = null;
     }
 }
 
@@ -63,6 +66,8 @@ const audioChunks = ref<Blob[]>([]);
 const audioPlayback = ref<HTMLAudioElement | null>(null);
 let mediaRecorder: MediaRecorder | null = null;
 let mediaStream: MediaStream | null = null;
+
+const apiUrl = 'https://your-api-endpoint.com/upload'; // Replace with your API endpoint
 
 function startOrStopRecording() {
     if (isRecording.value) {
@@ -84,20 +89,41 @@ const startRecording = async () => {
         audioChunks.value.push(event.data);
     };
 
-    mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunks.value, { type: 'audio/wav' });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            if (audioPlayback.value) {
+    mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunks.value, { type: 'audio/wav' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        if (audioPlayback.value) {
             audioPlayback.value.src = audioUrl;
         }
 
-        
-        const a = document.createElement('a');
-        a.href = audioUrl;
-        a.download = 'enregistrement.wav';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // Send audio to API and receive processed audio
+        const formData = new FormData();
+        formData.append('file', audioBlob, 'enregistrement.wav');
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const resultBlob = await response.blob();
+            const resultAudioUrl = URL.createObjectURL(resultBlob);
+            
+            if (audioPlayback.value) {
+                responseIsGetted.value = true
+                audioPlayback.value.src = resultAudioUrl;
+                audioPlayback.value.play(); // Auto-play the received audio
+            }
+
+            console.log('File successfully uploaded and processed');
+
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
 
         if (mediaStream) {
             mediaStream.getTracks().forEach(track => track.stop());

@@ -3,7 +3,7 @@
         <div class="h-screen flex flex-col justify-between items-center bg-green-600 bg-opacity-65">
             <div id="head" class="h-full flex items-center">
                 <div class="flex flex-col justify-center items-center">
-                    <img src="~/assets/images/bot.webp" alt="" class="rounded-full w-24 h-24 mb-5">
+                    <img src="~/assets/images/robot.jpeg" alt="" class="rounded-full w-24 h-24 mb-5">
                     <h1 class="text-4xl text-white uppercase font-bold">Glessi-tche</h1>
                 </div>
             </div>

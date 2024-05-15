@@ -5,7 +5,7 @@
                 <img src="~/assets/images/robot.jpeg" alt="" class="rounded-full w-24 h-24 mb-5">
                 <h1 class="text-4xl text-white uppercase font-bold">Glessi-tche</h1>
             </div>
-            <audio v-if="responseIsGetted" ref="audioPlayback" controls></audio>
+            <audio v-if="responseIsGetted" ref="audioPlayback" src="/audios/audio.mp3" controls></audio>
             <div v-else id="timer" class="max-w-md text-white">
                 <span class="text-4xl mx-4">{{ hours < 10 ? '0' + hours : hours }}</span>
                 <span class="text-4xl mx-4">:</span>
@@ -101,24 +101,24 @@ const startRecording = async () => {
         formData.append('file', audioBlob, 'enregistrement.wav');
 
         try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                body: formData
-            });
+            // const response = await fetch(apiUrl, {
+            //     method: 'POST',
+            //     body: formData
+            // });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            // if (!response.ok) {
+            //     throw new Error('Network response was not ok');
+            // }
 
-            const resultBlob = await response.blob();
-            const resultAudioUrl = URL.createObjectURL(resultBlob);
+            // const resultBlob = await response.blob();
+            // const resultAudioUrl = URL.createObjectURL(resultBlob);
             
-            if (audioPlayback.value) {
-                responseIsGetted.value = true
-                audioPlayback.value.src = resultAudioUrl;
-                audioPlayback.value.play(); // Auto-play the received audio
-            }
-
+            // if (audioPlayback.value) {
+            //     
+            //     audioPlayback.value.src = resultAudioUrl;
+            //     audioPlayback.value.play(); // Auto-play the received audio
+            // }
+            responseIsGetted.value = true
             console.log('File successfully uploaded and processed');
 
         } catch (error) {

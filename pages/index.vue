@@ -1,12 +1,36 @@
 <template>
-    <div class="h-screen flex flex-col justify-center items-center bg-gradient-to-t from-black py-5 md:py-7">
-        <h1 class="text-4xl text-white font-semibold mt-60">GLESSI-TCHE</h1>
+    <div class="w-screen h-screen bg-cover bg-fixed bg-no-repeat bg-center" style="background-image: url('famer.jpeg')">
+        <div class="h-screen flex flex-col justify-end items-center bg-green-600 bg-opacity-65">
+            
 
-        <ul id="lang" class="flex flex-col justify-center items-center w-full h-full">
-            <li class="w-1/2 h-16 rounded flex justify-center items-center text-2xl text-white bg-green-glessi"><NuxtLink to="/chat">FON</NuxtLink></li>
-            <li class="my-4 w-1/2 h-16 rounded flex justify-center items-center text-2xl text-black bg-yellow-glessi"><NuxtLink to="/chat">YORUBA</NuxtLink></li>
-            <li class="w-1/2 h-16 rounded flex justify-center items-center text-2xl text-white bg-red-glessi"><NuxtLink to="/chat">HAOUSSA</NuxtLink></li>
-            <li class="my-4 sm:my-6 md:my-8 w-24 h-24 flex justify-center items-center rounded-full bg-orange-glessi"><NuxtLink to="/chat"><IconsMicrophone :height="'1.5'" :color="'#fff'"/></NuxtLink></li>
-        </ul>
+            <div class="bg-white w-full py-10 rounded-t-3xl flex justify-center">
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="rounded-3xl text-white w-32 h-32 flex flex-col justify-around items-center bg-green-glessi">
+                        <div class="text-2xl">FON</div>
+                        <div>
+                            <IconsVolumeHight :height="'3'" :width="'3'" :color="'#fff'"/>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl text-white w-32 h-32 flex flex-col justify-around items-center bg-yellow-glessi">
+                        <div class="text-2xl text-black">YORUBA</div>
+                        <div>
+                            <IconsVolumeHight :height="'3'" :width="'3'"/>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl text-white w-32 h-32 flex flex-col justify-around items-center bg-red-glessi">
+                        <div class="text-2xl">DENDI</div>
+                        <div>
+                            <IconsVolumeHight :height="'3'" :width="'3'" :color="'#fff'"/>
+                        </div>
+                    </div>
+                    <div class="rounded-3xl text-white w-32 h-32 flex flex-col justify-around items-center bg-blue-glessi">
+                        <div class="text-2xl">BARIBA</div>
+                        <div>
+                            <IconsVolumeHight :height="'3'" :width="'3'" :color="'#fff'"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>

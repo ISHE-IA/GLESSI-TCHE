@@ -20,7 +20,7 @@
             </div>
             <div class="max-w-md w-full flex justify-center px-5 md:px-10">
                 <div id="end_chat">
-                    <NuxtLink to="/"><IconsArrowLeft :height="'3'" :width="'3'" :color="'#fff'"/></NuxtLink>
+                    <NuxtLink to="/home"><IconsArrowLeft :height="'3'" :width="'3'" :color="'#fff'"/></NuxtLink>
                 </div>
             </div>
         </div>
